@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Lvi-Hub/goit-react-hw-07-Test/static/css/main.def3eb09.css",
+    "main.js": "/Lvi-Hub/goit-react-hw-07-Test/static/js/main.5f70b9c7.js",
+    "index.html": "/Lvi-Hub/goit-react-hw-07-Test/index.html",
+    "main.def3eb09.css.map": "/Lvi-Hub/goit-react-hw-07-Test/static/css/main.def3eb09.css.map",
+    "main.5f70b9c7.js.map": "/Lvi-Hub/goit-react-hw-07-Test/static/js/main.5f70b9c7.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.def3eb09.css",
+    "static/js/main.5f70b9c7.js"
+  ]
+}
