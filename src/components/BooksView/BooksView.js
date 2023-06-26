@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import * as booksOperations from '../../redux/books/bookOperation';
+import * as booksOperations from 'redux/books/bookOperation';
 
 export function BooksView() {
   const dispatch = useDispatch();
@@ -8,9 +8,5 @@ export function BooksView() {
 
   useEffect(() => dispatch(booksOperations.fetchBooks()), [dispatch]);
 
-  return (
-    <>
-      <p>Books</p>
-    </>
-  );
+  return <>{books.lenght > 0 && <p>Books</p>}</>;
 }
