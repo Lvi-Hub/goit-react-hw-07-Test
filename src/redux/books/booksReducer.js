@@ -1,18 +1,19 @@
-import { combineReducers, createReducer } from '@reduxjs/toolkit';
-import * as booksActions from './booksActions';
+import { createReducer, combineReducers, createSlice } from '@reduxjs/toolkit';
+import { fetchBooks } from './booksOperations';
 
 const entities = createReducer([], {
-  [booksActions.fetchBooksSuccess]: (_, action) => action.payload,
+  [fetchBooks.fulfilled]: (_, action) => action.payload,
 });
 
 const isLoading = createReducer(false, {
-  [booksActions.fetchBooksRequest]: () => true,
-  [booksActions.fetchBooksSuccess]: () => false,
-  [booksActions.fetchBooksError]: () => false,
+  [fetchBooks.pending]: () => true,
+  [fetchBooks.fulfilled]: () => false,
+  [fetchBooks.rejected]: () => false,
 });
+
 const error = createReducer(null, {
-  [booksActions.fetchBooksError]: (_, action) => action.payload,
-  [booksActions.fetchBooksRequest]: () => null,
+  [fetchBooks.rejected]: (_, action) => action.payload,
+  [fetchBooks.pending]: () => null,
 });
 
 export default combineReducers({
@@ -20,3 +21,15 @@ export default combineReducers({
   isLoading,
   error,
 });
+
+// 🔥 ИСПОЛЬЗУЕТ IMMER ДЛЯ МУТАЦИИ КОПИИ СОСТОЯНИЯ
+// const booksSlice = createSlice({
+//   name: 'books',
+//   initialState: { entities: [], isLoading: false, error: null },
+//   extraReducers: {
+//     [fetchBooks.fulfilled]: (state, { payload }) => (state.entities = payload),
+//     [fetchBooks.pending]: state => (state.isLoading = true),
+//   },
+// });
+
+// export default booksSlice.reducer;
